@@ -1,0 +1,26 @@
+@startuml
+
+!theme vibrant
+
+class Aluno {
+  ~matricula: String
+  -nome: String
+  -email: String
+  --
+  +obterMatricula(): String
+  +atualizarEmail(novoEmail: String): void
+}
+
+class Curso {
+  -codigo: String
+  -nome: String
+  -descricao: String
+  --
+  +obterCodigo(): String
+  +adicionarAluno(aluno: Aluno): void
+  +removerAluno(aluno: Aluno): void
+}
+
+Aluno "0..*" -- "1" Curso : matriculado em >
+
+@enduml
