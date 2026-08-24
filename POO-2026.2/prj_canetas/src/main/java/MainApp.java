@@ -14,7 +14,7 @@ public class MainApp {
         caneta2.ponta = 2.0f;
         System.out.println("Carga da caneta 1 - antes: " + caneta1.obterCarga());
         for (int i = 0; i < 100; i++) {
-            caneta1.escrever("POO " + (i+1));
+            caneta1.escrever("POO " + (i + 1));
         }
         System.out.println("Carga da caneta 1:- depois " + caneta1.obterCarga());
 

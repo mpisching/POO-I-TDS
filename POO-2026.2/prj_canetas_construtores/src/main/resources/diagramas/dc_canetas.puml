@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+class Caneta {
+   'atributos de classe
+   +marca: String
+   +modelo: String
+   +cor: String
+   +ponta: float
+   +carga: int
+
+   +pintar(): void
+   +escrever(texto: String): void
+   +desenhar(): void
+   +obterCarga(): int
+   +temCarga(): boolean
+}
+
+
+@enduml
