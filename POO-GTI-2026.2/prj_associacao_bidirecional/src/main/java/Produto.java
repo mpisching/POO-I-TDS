@@ -6,6 +6,8 @@ public class Produto {
 
     private Categoria categoria; //associacao simples unidirecional
 
+    private Fornecedor fornecedor;//multiplicidade - Produto possuir um Fornecedor
+
     //private int id_categoria; //CRIME CONTRA A POO
 
     public Produto() {
@@ -17,6 +19,15 @@ public class Produto {
         this.descricao = descricao;
         this.preco = preco;
         this.categoria = categoria;
+    }
+
+    public Produto(int id, String nome, String descricao, double preco, Categoria categoria, Fornecedor fornecedor) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.categoria = categoria;
+        this.fornecedor = fornecedor;
     }
 
     public int getId() {
@@ -59,6 +70,14 @@ public class Produto {
         this.categoria = categoria;
     }
 
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
@@ -67,6 +86,7 @@ public class Produto {
                 ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
                 ", categoria=" + categoria +
+                ", fornecedor=" + fornecedor.getNome() +
                 '}';
     }
 }

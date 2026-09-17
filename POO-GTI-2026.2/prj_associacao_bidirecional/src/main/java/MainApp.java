@@ -13,7 +13,7 @@ public class MainApp {
         produto1.setNome("Celular");
         produto1.setDescricao("Celular Ultra Led");
         produto1.setPreco(1200.0);
-       // produto1.setCategoria(categoria1);
+        produto1.setCategoria(categoria1);
 
         Produto produto2 = new Produto(2, "Geladeira", "Geladeira Frost Free",
                 2300.0, categoria2);
@@ -21,19 +21,30 @@ public class MainApp {
         Produto produto3 = new Produto(3, "Tablet", "Tablet com caneta",
                 2000, categoria1);
 
+        Fornecedor fornecedor1 = new Fornecedor(1, "IFSC", "contato@ifsc.edu.br", "4899993993");
+        Fornecedor fornecedor2 = new Fornecedor(2, "Eletrons", "contato@eletrons.com.br", "4894343993");
+
+        fornecedor1.add(produto1);
+        fornecedor1.add(produto3);
+
+        System.out.println("Nome do fornecedor do produto 1: " +
+                produto1.getFornecedor().getNome());
+
         //println(categoria1);
         //println(categoria2);
-        println(produto1);
-        println(produto2);
-        println(produto3);
+//        println(produto1);
+//        println(produto2);
+//        println(produto3);
 
-        //Mostrar a descricao da categoria do produto 3, como seria?
-        System.out.println("Categoria do produto 3: " +
-                produto3.getCategoria().getDescricao());
+        //println(fornecedor1);
 
-        System.out.println("Categoria do produto 1:" +
-                produto1.getCategoria().getDescricao());
+        println(fornecedor1.getDados());
 
+        fornecedor1.remove(produto3);
+//        println("depois da remoção...");
+//        println(fornecedor1);
+
+        println(fornecedor1.getDados());
 
     }
 }
