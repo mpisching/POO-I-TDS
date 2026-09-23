@@ -1,51 +1,36 @@
-import java.math.BigDecimal;
+import model.Carro;
+import model.Proprietario;
+import model.Roda;
 
 public class MainApp {
-    public static void main(String[] args) {
+    static void main() {
+        Proprietario proprietario = new Proprietario("Fulano");
+        Carro carro1 = new Carro("S10");
+        Roda[] rodas = new Roda[4];
+        rodas[0] = new Roda("Liga leve");
+        rodas[1] = new Roda("Liga leve");
+        rodas[2] = new Roda("Liga leve");
+        rodas[3] = new Roda("Liga leve");
 
-        int[] vetor = new int[10];
-        Categoria[] categorias = new Categoria[5];
-        Categoria categoria1 = new Categoria();
-        categoria1.setId(1);
-        categoria1.setDescricao("Eletrônicos");
-        Categoria categoria2 = new Categoria(2, "Eletrodomésticos");
-        categorias[0] = categoria1;
-        categorias[1] = categoria2;
+        carro1.setRodas(rodas);
 
-        Produto produto1 = new Produto();
-        produto1.setId(1);
-        produto1.setNome("Celular");
-        produto1.setDescricao("Celular 7\"");
-        produto1.setPreco(new BigDecimal(1200.0));
-        produto1.setCategoria(categoria1);
-        Produto produto2 = new Produto(
-                2, "Geladeira", "Geladeira Frost Free",
-                new BigDecimal(3200.0));
-        produto2.setCategoria(categoria2);
+        proprietario.add(carro1);
 
-        Produto produto3 = new Produto(3, "TV", "TV plana qled",
-                new BigDecimal(2300.0), categoria1);
+        Carro carro2 = new Carro("Ranger");
+        carro2.setRodas(rodas);
+        proprietario.add(carro2);
 
-        //print(categoria1);
-        //print(categoria2);
-        print(produto1);
-        print(produto2);
-        print(produto3);
-        printCategoria(produto1);
-    }
+        System.out.println("dados do proprietario");
+        System.out.println("Nome: " + proprietario.getNome());
+        System.out.println("Carros do proprietario: ");
+        for (Carro carro : proprietario.getCarros()) {
+            System.out.println("Modelo: " + carro.getModelo());
+            System.out.println("Rodas: ");
+            for (Roda roda: carro.getRodas()) {
+                System.out.println("Tipo: " + roda.getTipo());
+            }
+        }
 
-    public static void print(Categoria categoria){
-        System.out.println("Dados da categoria:");
-        System.out.println(categoria.toString());
-    }
-
-    public static void print(Produto produto){
-        System.out.println("**** Dados do Produto ****");
-        System.out.println(produto.toString());
-    }
-
-    public static void printCategoria(Produto produto) {
-        System.out.println("Nome: " +  produto.getNome());
-        System.out.println("Categoria: " +  produto.getCategoria().getDescricao());
+        System.out.println("Nome do proprietario do carro2: " + carro2.getProprietario().getNome());
     }
 }
