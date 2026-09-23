@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Carro {
+    - modelo: String
+}
+
+class Proprietario {
+    - nome: String
+}
+
+class Roda {
+    - tipo: String
+}
+
+Carro "0..*   "--"1"Proprietario
+Carro "1"--> "               4" Roda
+
+@enduml
