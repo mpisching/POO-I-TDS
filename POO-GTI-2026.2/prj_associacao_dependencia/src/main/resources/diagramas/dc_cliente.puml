@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Cliente {
+    - id: int
+    - nome: String
+    - cpf: String
+}
+
+class Relatorio {
+    + imprimir(cliente: Cliente): String
+}
+
+class Venda {
+    - id: int
+    - data: String
+    - valor: double
+}
+
+enum Situacao {
+    ABERTA
+    FINALIZADA
+    CANCELADA
+}
+
+Venda --> "1" Cliente
+Venda --> Situacao
+Relatorio ..> Cliente
+
+@enduml
