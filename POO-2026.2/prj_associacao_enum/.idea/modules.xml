@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/prj_associacao_bidirecional_produto_fornecedor.iml" filepath="$PROJECT_DIR$/prj_associacao_bidirecional_produto_fornecedor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prj_associacao_bidirecional_enum.iml" filepath="$PROJECT_DIR$/prj_associacao_bidirecional_enum.iml" />
     </modules>
   </component>
 </project>
