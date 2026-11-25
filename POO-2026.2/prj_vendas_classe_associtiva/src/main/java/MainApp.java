@@ -72,22 +72,27 @@ public class MainApp {
                 5, "International Express", "contato@internationalexpress.com",
                 "454533434343", "Paraguai", "342342");
 
-        //vamos as compras...
-        Venda venda1 = new Venda(1, LocalDate.now(), false, 0.0, null);
-        ItemDeVenda item1 = new ItemDeVenda();
-        item1.setId(1);
-        item1.setProduto(produto1);
-        item1.setQuantidade(1);
-        item1.setValor(produto1.getPreco());
-        venda1.add(item1);
-        ItemDeVenda item2 = new ItemDeVenda();
-        item2.setId(2);
-        item2.setProduto(produto2);
-        item2.setQuantidade(2);
-        item2.setValor(produto2.getPreco());
-        venda1.add(item2);
+        Venda.setEmpresa("Comércio IFSC LTDA.");
 
-        System.out.println("Total da venda: " + venda1.totalVenda());
+        //vamos as compras...
+        Cliente cliente = new Cliente(1, "Lucas", "3434356755", "4893994757", "Florianópolis", LocalDate.now());
+        Venda venda1 = new Venda(1, LocalDate.now(), false, 0.0, cliente);
+        venda1.add(1, produto1, 1, produto1.getPreco());
+        venda1.add(2, produto2, 2, produto2.getPreco());
+
+//        System.out.println("antes de matar a venda...");
+//        System.out.println("Venda: " + venda1.getId());
+//        System.out.println("Produto 1: " + produto1.getNome());
+//        System.out.println("Produto 2: " + produto2.getNome());
+//
+//        System.out.println("depois de matar a venda...");
+//        venda1 = null;
+//        System.out.println("Venda: " + venda1);
+//        System.out.println("Produto 1: " + produto1.getNome());
+//        System.out.println("Produto 2: " + produto2.getNome());
+
+        //System.out.println("Total da venda: " + venda1.totalVenda());
+        System.out.println(venda1.gerarCupom());
 
 
         //print(internacional);

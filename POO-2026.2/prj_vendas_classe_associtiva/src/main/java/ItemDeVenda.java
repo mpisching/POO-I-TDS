@@ -18,6 +18,13 @@ public class ItemDeVenda {
         this.valor = valor;
     }
 
+    public ItemDeVenda(int id, int quantidade, BigDecimal valor, Produto produto) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.valor = valor;
+        this.produto = produto;
+    }
+
     public int getId() {
         return id;
     }
@@ -57,4 +64,5 @@ public class ItemDeVenda {
     public void setVenda(Venda venda) {
         this.venda = venda;
     }
+
 }

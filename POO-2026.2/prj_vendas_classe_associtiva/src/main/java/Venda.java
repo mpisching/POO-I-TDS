@@ -103,7 +103,16 @@ public class Venda {
         this.cliente = cliente;
     }
 
-    public void add(ItemDeVenda item) {
+    /**
+     *
+     *
+     * @param id
+     * @param produto
+     * @param qtd
+     * @param valorUnt
+     */
+    public void add(int id, Produto produto, int qtd, BigDecimal valorUnt) {
+        ItemDeVenda item = new ItemDeVenda(id, qtd, valorUnt, produto);
         itensDeVenda.add(item);
         item.setVenda(this);
     }
@@ -115,5 +124,28 @@ public class Venda {
             total = total.add(subTotal);
         }
         return total;
+    }
+
+    public String gerarCupom() {
+        StringBuilder cupom = new StringBuilder();
+        cupom.append("****** CUPOM DE VENDA ******\n");
+        cupom.append("Empresa ").append(empresa).append("\n");
+        cupom.append("Num: ").append(id).append("     Data: ").append(data).append("\n");
+        cupom.append("Cliente: ").append(cliente.getNome()).append("\n");
+        cupom.append("----------------------------\n");
+        cupom.append("Item\tProduto\t\tQtd\tVlr Unt\tValor\n");
+        int i = 0;
+        for (ItemDeVenda item: itensDeVenda) {
+            BigDecimal valor = item.getValor().multiply(new BigDecimal(item.getQuantidade()));
+            cupom.append(++i).append("\t").append(item.getProduto().getNome())
+                    .append("\t\t").append(item.getQuantidade()).append("\t")
+                    .append(item.getValor()).append("\t")
+                    .append(valor).append("\n");
+        }
+        cupom.append("----------------------------\n");
+        cupom.append("Total...........: ").append(totalVenda()).append("\n");
+        cupom.append("----------------------------\n");
+        cupom.append("Obrigado pela preferência ... volte sempre!!!\n");
+        return cupom.toString();
     }
 }
